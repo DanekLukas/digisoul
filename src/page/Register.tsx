@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core'
 import { DbContext } from '../contexts/DbContext'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -46,10 +45,7 @@ const Register = () => {
     <div className='main'>
       <h1>{text}</h1>
       <form method='post' onSubmit={handleOnSubmit}>
-        <GenForm input={register} values={values} setValues={setValues} />
-        <Button type='submit' variant='contained' color='primary'>
-          {text}
-        </Button>
+        <GenForm input={register} values={values} setValues={setValues} button={text} />
       </form>
       <Info info={info} open={open} setOpen={setOpen} />
       <Back />

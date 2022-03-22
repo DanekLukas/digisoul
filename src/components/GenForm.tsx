@@ -1,4 +1,4 @@
-import { TextField, TextareaAutosize } from '@material-ui/core'
+import { Button, TextField, TextareaAutosize } from '@material-ui/core'
 
 type TProperties = { text: string; type: string; helperText?: string }
 
@@ -14,9 +14,10 @@ type Props = {
   input: TInput
   values: TValues
   setValues: React.Dispatch<React.SetStateAction<TValues>>
+  button: string
 }
 
-const GenForm = ({ input, values, setValues }: Props) => {
+const GenForm = ({ input, values, setValues, button }: Props) => {
   const handleInput = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
     item: string
@@ -52,6 +53,9 @@ const GenForm = ({ input, values, setValues }: Props) => {
           />
         )
       )}
+      <Button type='submit' variant='contained' color='primary'>
+        {button}
+      </Button>
     </>
   )
 }

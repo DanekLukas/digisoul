@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core'
 import { DbContext, TBlog } from '../contexts/DbContext'
 import { Fragment, useContext, useEffect, useState } from 'react'
 import { styled } from '@mui/styles'
@@ -43,10 +42,7 @@ const Blog = () => {
       </Logout>
       <h1>{text}</h1>
       <form method='post' onSubmit={handleOnSubmit}>
-        <GenForm input={blog} values={values} setValues={setValues} />
-        <Button type='submit' variant='contained' color='primary'>
-          {button}
-        </Button>
+        <GenForm input={blog} values={values} setValues={setValues} button={button} />
       </form>
       {blogs.map((item, index) => (
         <Fragment key={index}>
