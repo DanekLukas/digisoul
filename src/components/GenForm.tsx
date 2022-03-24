@@ -37,6 +37,7 @@ const GenForm = ({ input, values, setValues, button }: Props) => {
             aria-label='maximum height'
             placeholder={input[item as keyof typeof input].helperText || ''}
             value={values[item as keyof typeof values]}
+            required
             style={{ width: 200, height: 100 }}
             onChange={e => handleInput(e, item)}
           />
@@ -49,6 +50,7 @@ const GenForm = ({ input, values, setValues, button }: Props) => {
             helperText={input[item as keyof typeof input].helperText || ''}
             type={input[item as keyof typeof input].type}
             autoComplete='on'
+            required
             onChange={e => handleInput(e, item)}
           />
         )

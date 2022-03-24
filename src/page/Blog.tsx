@@ -10,7 +10,7 @@ const Blog = () => {
   const initValues = { name: '', text: '' }
   const { insertBlog, userName, getBlogs, logout } = useContext(DbContext)
   const [values, setValues] = useState<TValues>(initValues)
-  const [blogs, setBlogs] = useState<Array<TBlog>>([])
+  const [blogs, setBlogs] = useState<Array<TBlog>>()
   const blog = {
     name: { text: 'Název', type: 'text', helperText: 'Název příspěvku' },
     text: { text: 'Text', type: 'textarea', helperText: 'Blog text' },
@@ -21,7 +21,7 @@ const Blog = () => {
   }
 
   useEffect(() => {
-    refreshBlogs()
+    if (!blogs) refreshBlogs()
   })
 
   const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,7 +44,7 @@ const Blog = () => {
       <form method='post' onSubmit={handleOnSubmit}>
         <GenForm input={blog} values={values} setValues={setValues} button={button} />
       </form>
-      {blogs.map((item, index) => (
+      {blogs?.map((item, index) => (
         <Fragment key={index}>
           <BlogCmp name={item.name} text={item.text} author={item.author} created={item.created} />
         </Fragment>
